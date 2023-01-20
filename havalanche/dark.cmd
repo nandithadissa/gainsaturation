@@ -37,7 +37,7 @@ sdevice_init {
 						SRH
 						Auger
 						#Radiative
-						hAvalanche(vanOverstraetendeMan ElectricField)
+						hAvalanche(vanOverstraetendeMan) # ElectricField)
 		)	
 
 	}

@@ -1,0 +1,6 @@
+sdevice --tcl light_p0001.cmd
+sdevice --tcl light_p001.cmd
+sdevice --tcl light_p01.cmd
+sdevice --tcl light_p1.cmd
+sdevice --tcl light_1.cmd
+sdevice --tcl light_10.cmd

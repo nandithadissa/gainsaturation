@@ -16,7 +16,7 @@
 (sdegeo:create-rectangle (position 0 0.9 0)  (position 1.0 0.95 0) "InAlAs" "ancharge")
 (sdegeo:create-rectangle (position 0 0.95 0)  (position 1 1.45 0) "InGaAs" "abs")
 (sdegeo:create-rectangle (position 0 1.45 0)  (position 1 1.95 0) "InAlAs" "buffer")
-(sdegeo:create-rectangle (position 0 1.95 0)  (position 1 2.45 0) "InAlAs" "nregion")
+(sdegeo:create-rectangle (position 0 1.95 0)  (position 1 2.45 0) "InP" "nregion")
 (sdedr:define-constant-profile "ppregion" "BoronActiveConcentration" -7e+18)
 (sdedr:define-constant-profile "nmulti" "PhosphorusActiveConcentration" 7e+14)
 (sdedr:define-constant-profile "nfiller" "PhosphorusActiveConcentration" 7e+14)
