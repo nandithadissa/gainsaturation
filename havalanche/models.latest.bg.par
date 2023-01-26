@@ -1092,16 +1092,16 @@ vanOverstraetendeMan * Impact Ionization:
   * or  Ecrit = (beta Eg)/(q lambda) (with BandgapDependence)
 * Mole fraction dependent model.
 * Linear interpolation is used on the interval [0,1].
-	a(low)(0)	= 4.17000e+6,	4.17000e+6	#[1/cm]
-	a(low)(1)	= 4.17000e+6,	4.17000e+6	#[1/cm]
-	a(high)(0)	= 4.17000e+6,	4.17000e+6	#[1/cm]
-	a(high)(1)	= 4.17000e+6,	4.17000e+6	#[1/cm]
-	b(low)(0)	= 1.09000e+6,	1.09000e+6	#[V/cm]
-	b(low)(1)	= 1.09000e+6,	1.09000e+6	#[V/cm]
-	b(high)(0)	= 1.0900e+6,	1.09000e+6	#[V/cm]
-	b(high)(1)	= 1.09000e+6,	1.09000e+6	#[V/cm]
-	E0(0)	= 4.0000e+05,	4.0000e+05	#[V/cm]
-	E0(1)	= 4.0000e+05,	4.0000e+05	#[V/cm]
+	a(low)(0)	= 4.17000e+6,	2.65000e+6	#[1/cm]
+	a(low)(1)	= 4.17000e+6,	2.65000e+6	#[1/cm]
+	a(high)(0)	= 4.17000e+6,	2.65000e+6	#[1/cm]
+	a(high)(1)	= 2.17000e+6,	2.65000e+6	#[1/cm]
+	b(low)(0)	= 2.09000e+6,	2.79000e+6	#[V/cm]
+	b(low)(1)	= 2.09000e+6,	2.79000e+6	#[V/cm]
+	b(high)(0)	= 2.0900e+6,	2.79000e+6	#[V/cm]
+	b(high)(1)	= 2.09000e+6,	2.79000e+6	#[V/cm]
+	E0(0)	= 2.1500e+05,	2.30000e+05	#[V/cm]
+	E0(1)	= 2.1500e+05,	2.30000e+05	#[V/cm]
 	hbarOmega(0)	= 1.0000e+3,	1.0000e+3	#[eV]   These are temp dependent factor and are irrelevant
 	hbarOmega(1)	= 1.0000e+3,	1.0000e+3	#[eV]
 	beta(low)(0)	= 6.20285,	1.13424	#[1]

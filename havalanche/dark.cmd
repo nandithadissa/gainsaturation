@@ -2,7 +2,7 @@
 sdevice_init {
 	Electrode{
 		{ Name = "drain" Voltage = 0.0 }
-		{ Name = "source" Voltage = 0.0 } 
+		{ Name = "source" Voltage = 20.0 } 
 	}
 
 	File{
@@ -28,7 +28,6 @@ sdevice_init {
 	Physics(Region="multi"){
 		  Mobility(
 			  hHighFieldSaturation
-			  #eHighFieldSaturation
 		   )
 		   
 		EffectiveIntrinsicDensity( OldSlotboom )
@@ -36,7 +35,7 @@ sdevice_init {
 		Recombination(
 						SRH
 						Auger
-						#Radiative
+						Radiative
 						hAvalanche(vanOverstraetendeMan) # ElectricField)
 		)	
 
@@ -61,7 +60,7 @@ sdevice_init {
 		#BreakAtIonIntegral
 		#-CheckUndefinedModels
 		#Cylindrical(xAxis=0.0)
-		Digits=3
+		Digits=5
 	}
 
 }
@@ -76,7 +75,7 @@ sdevice_solve {
 		NewCurrentPrefix = ""
 		QuasiStationary (
 			InitialStep=0.3  MaxStep=0.01 MinStep=0.00001
-			Goal {Name="drain" Voltage=-60.0}
+			Goal {Name="drain" Voltage=-50.0}
 				#plot { range=(0,0.125) intervals=2}
 		)
 			{ Coupled (iterations=25) {Poisson Electron Hole} }

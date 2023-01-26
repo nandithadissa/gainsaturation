@@ -2,13 +2,13 @@
 sdevice_init {
 	Electrode{
 		{ Name = "drain" Voltage = 0.0 }
-		{ Name = "source" Voltage = 20.0 } 
+		{ Name = "source" Voltage = 0.0 } 
 	}
 
 	File{
 		Grid = "thinmultidiode_msh.tdr"
-		Plot = "light_10.tdr"
-		Current = "light_10.plt"
+		Plot = "light_p001.tdr"
+		Current = "light_p001.plt"
 		Output = "light.log"
 		Parameter = "models.latest.bg.par"
 	}
@@ -34,7 +34,7 @@ sdevice_init {
 					Theta= 0            # incidence angle
 					Polarization= 0.5   # apolarized
 					Wavelength=1.5      # um
-					Intensity= 10 # [W/cm2]       #zero power
+					Intensity= 0.001 # [W/cm2]       #zero power
 					Window ("L1") (
 						Origin = (0,0,0)
 						Line ( X1= 0 X2=1 )
@@ -57,8 +57,9 @@ sdevice_init {
 		Recombination(
 						SRH
 						Auger
-						hAvalanche(vanOverstraetendeMan) # ElectricField)
+						hAvalanche(vanOverstraetendeMan ElectricField)
 		)	
+
 		}
 
 
@@ -80,7 +81,7 @@ sdevice_init {
 		#BreakAtIonIntegral
 		#-CheckUndefinedModels
 		#Cylindrical(xAxis=0.0)
-		Digits=5
+		Digits=3
 	}
 
 }
@@ -97,7 +98,7 @@ sdevice_solve {
 		Optics
 		QuasiStationary (
 			InitialStep=0.3  MaxStep=0.01 MinStep=0.00001
-			Goal {Name="drain" Voltage=-50.0}
+			Goal {Name="drain" Voltage=-60.0}
 				#plot { range=(0,0.7) intervals=1}
 		)
 			{ Coupled (iterations=25) {Poisson Electron Hole} }

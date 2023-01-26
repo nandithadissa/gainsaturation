@@ -1,12 +1,4 @@
 ; ******* models a generic inP muli apd **********
-;
-; THis is a exact model of the excelitas with the charge layer created narrow.
-; 12/15/22 - reduce the multu thiickess
-; 12/30/22 - adding a thicker charge layera
-; %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-; THIS IS A CONTROL DEVICE WITH NO NARROW P regions. THIS IS TO COMPARE WITH THE 010523 doe design
-;--------------------------------------------------------
-
 
 (set! process-up-direction "+z")
 (sdegeo:set-auto-region-naming OFF)
@@ -14,13 +6,12 @@
 (sdegeo:create-rectangle (position 0 0.5 0)  (position 1 0.8 0) "InAlAs" "multi")
 (sdegeo:create-rectangle (position 0 0.8 0)  (position 1.0 0.9 0) "InAlAs" "charge")
 (sdegeo:create-rectangle (position 0 0.9 0)  (position 1.0 0.95 0) "InAlAs" "ancharge")
-(sdegeo:create-rectangle (position 0 0.95 0)  (position 1 1.45 0) "InGaAs" "abs")
-(sdegeo:create-rectangle (position 0 1.45 0)  (position 1 1.95 0) "InAlAs" "buffer")
-(sdegeo:create-rectangle (position 0 1.95 0)  (position 1 2.45 0) "InP" "nregion")
+(sdegeo:create-rectangle (position 0 0.95 0)  (position 1 2.25 0) "InGaAs" "abs")
+(sdegeo:create-rectangle (position 0 2.25 0)  (position 1 2.75 0) "InAlAs" "buffer")
+(sdegeo:create-rectangle (position 0 2.75 0)  (position 1 3.25 0) "InP" "nregion")
 (sdedr:define-constant-profile "ppregion" "BoronActiveConcentration" -7e+18)
 (sdedr:define-constant-profile "nmulti" "PhosphorusActiveConcentration" 7e+14)
-(sdedr:define-constant-profile "nfiller" "PhosphorusActiveConcentration" 7e+14)
-(sdedr:define-constant-profile "ncharge" "PhosphorusActiveConcentration" 3.0e+18)
+(sdedr:define-constant-profile "ncharge" "PhosphorusActiveConcentration" 7.0e+17)
 (sdedr:define-constant-profile "nancharge" "PhosphorusActiveConcentration" 5e+16)
 (sdedr:define-constant-profile "nabs" "PhosphorusActiveConcentration" 7e+14)
 (sdedr:define-constant-profile "nbuffer" "PhosphorusActiveConcentration" 7e+14)
@@ -35,10 +26,10 @@
 (sdegeo:define-contact-set "source" 4  (color:rgb 1 0 0 ) "##")
 (sdegeo:define-contact-set "drain" 4  (color:rgb 0 0 1 ) "##")
 (sdegeo:set-current-contact-set "source")
-(sdegeo:define-2d-contact (list (car (find-edge-id (position 0.5 2.45  0)))) "source")
+(sdegeo:define-2d-contact (list (car (find-edge-id (position 0.5 3.25  0)))) "source")
 (sdegeo:set-current-contact-set "drain")
 (sdegeo:define-2d-contact (list (car (find-edge-id (position 0.5 0 0)))) "drain")
-(sdedr:define-refeval-window "device_mesh_win" "Rectangle"  (position -0.01 -0.01 0) (position 1.01 2.46 0))
+(sdedr:define-refeval-window "device_mesh_win" "Rectangle"  (position -0.01 -0.01 0) (position 1.01 3.26 0))
 (sdedr:define-refinement-size "DeviceMeshRefinementDefinition" 0.1 0.01 1E-2 1E-3 )
 (sdedr:define-refinement-placement "full_area" "DeviceMeshRefinementDefinition" (list "window" "device_mesh_win" ) )
 ; ** higher mesh in the multi--------------------------------------------
@@ -50,4 +41,4 @@
 (sdedr:append-cmd-file "")
 (sde:save-model "/home/ndissanayake/synopsys/gainsaturation/workingmodel/havalanche/thinmultidiode")
 (sde:build-mesh "snmesh" "-a -c boxmethod" "/home/ndissanayake/synopsys/gainsaturation/workingmodel/havalanche/thinmultidiode")
-(system:command "svisual /home/ndissanayake/synopsys/gainsaturation/workingmodel/havalanche/thinmultidiode_msh.tdr &")
+;(system:command "svisual /home/ndissanayake/synopsys/gainsaturation/workingmodel/havalanche/thinmultidiode_msh.tdr &")

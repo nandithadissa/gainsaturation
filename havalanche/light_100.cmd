@@ -7,8 +7,8 @@ sdevice_init {
 
 	File{
 		Grid = "thinmultidiode_msh.tdr"
-		Plot = "light_10.tdr"
-		Current = "light_10.plt"
+		Plot = "light_100.tdr"
+		Current = "light_100.plt"
 		Output = "light.log"
 		Parameter = "models.latest.bg.par"
 	}
@@ -34,7 +34,7 @@ sdevice_init {
 					Theta= 0            # incidence angle
 					Polarization= 0.5   # apolarized
 					Wavelength=1.5      # um
-					Intensity= 10 # [W/cm2]       #zero power
+					Intensity= 100 # [W/cm2]       #zero power
 					Window ("L1") (
 						Origin = (0,0,0)
 						Line ( X1= 0 X2=1 )
@@ -57,6 +57,7 @@ sdevice_init {
 		Recombination(
 						SRH
 						Auger
+						Radiative
 						hAvalanche(vanOverstraetendeMan) # ElectricField)
 		)	
 		}
@@ -107,4 +108,4 @@ sdevice_solve {
 
 
 # save final plot file
-sdevice_finish
+device_finish
